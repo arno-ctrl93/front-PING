@@ -1,0 +1,107 @@
+.ToolBar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+
+  background-color: purple;
+}
+
+img {
+  height: 30px;
+  margin-left: 10px;
+}
+
+.ide-name {
+  font: "Arial";
+  font-size: 30px;
+  color: yellow;
+  margin-left: 10px;
+}
+.switch-element {
+  margin-left: auto;
+  margin-right: 0px;
+  margin-top: 0;
+}
+.button-text {
+  font: "Arial";
+  color: white;
+  font-size: 10px;
+}
+
+/* button */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+.toggle-switch .switch {
+  position: absolute;
+  cursor: pointer;
+  background-color: magenta;
+  border-radius: 25px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s ease;
+}
+.toggle-switch .switch::before {
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch::before {
+  transform: translateX(25px);
+  background-color: white;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch {
+  background-color: yellow;
+}
+
+.preference-button {
+  background-color: transparent;
+  border: none;
+  width: 60px;
+  margin-right: 10px;
+}
+
+.menu {
+  background-color: yellow;
+  width: 100px;
+  margin-right: 0px;
+  margin-left: auto;
+}
+
+.file-button {
+  background-color: transparent;
+  border: none;
+  text-align: right;
+}
+
+.file-button:hover {
+  background-color: magenta;
+  color: white;
+  cursor: pointer;
+}
+
+[class*="shortcut"] {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+}
+
+[class*="shortcut"]:hover {
+  background-color: magenta;
+  color: white;
+  cursor: pointer;
+}
