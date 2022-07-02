@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Keyboard from './keyboard/Keyboard';
+import ToolBar from './toolbar/Toolbar';
+import TextArea from './textArea/textarea';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <div className="Component">
+      <div id="Key">
+        <div id="file"> Je suis un file. </div>
+        <Keyboard />
+        </div>
+        <div id = "Editor">
+          <ToolBar />
+          <TextArea />
+        </div>
+    </div>
   </React.StrictMode>
 );
 
