@@ -9,24 +9,31 @@ import brace from 'brace';
 
 import 'ace-builds/src-noconflict/mode-java'
 import 'ace-builds/src-noconflict/theme-monokai';
+import 'ace-builds/src-noconflict/theme-xcode';
 
 
 function App() {
 
   useEffect(() => {
-    let editor;
-    //editor = AceEditor.edit("editor");
-    
+    /*let editor = document.getElementById('editor');
+    if (editor) {
+      editor.style.height = '100%';
+    }
+    else
+      console.log("editor not found");
+    //editor.setTheme("ace/theme/clouds_midnight");*/
   });
   return (
     <div className="App">
         <AceEditor 
           id = "editor"
+          class = "editor"
           placeholder="Type your code here..."
           mode="java" 
-          theme="monokai"
-          name="UNIQUE_ID_OF_DIV"
+          theme='monokai'
           fontSize={14}
+          height="700px"
+          width="100%"
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}
