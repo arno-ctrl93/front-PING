@@ -21,15 +21,14 @@ code {
 .Bottom {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  height: 35%;
+  height: 40%;
 }
 
 .Top {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 65%;
+  height: 60%;
 }
 
 #Clavier {

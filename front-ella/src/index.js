@@ -6,8 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import Keyboard from './keyboard/Keyboard';
 import ToolBar from './toolbar/Toolbar';
 import TextArea from './textArea/textarea';
-import Console from './console/console';
 import TreeList from './treeList/treelist';
+import Notifications from './notification/Notification';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,7 +28,7 @@ root.render(
           <Keyboard />
         </div>
         <div id="Console">
-         <p>Console here</p>
+          <Notifications/>
         </div>
       </div>
     </div>

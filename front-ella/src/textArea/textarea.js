@@ -33,6 +33,7 @@ function App() {
           theme='monokai'
           fontSize={14}
           width="100%"
+          height = "400px"
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}
