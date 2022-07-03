@@ -319,7 +319,7 @@ document.onkeydown = function() {
          break;
         case 32:
           key = document.getElementById("space")
-          window.event.preventDefault();
+          //window.event.preventDefault();
          break;
         case 222:
           key = document.getElementById("tild")
