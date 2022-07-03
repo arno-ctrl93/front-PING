@@ -7,6 +7,7 @@ import Keyboard from './keyboard/Keyboard';
 import ToolBar from './toolbar/Toolbar';
 import TextArea from './textArea/textarea';
 import Console from './console/console';
+import TreeList from './treeList/treelist';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,7 @@ root.render(
     <div className="Component">
       <div className="Top">
         <div className="Files">
-          <p>File here</p>
+          <TreeList />
         </div>
         <div id = "Editor">
           <ToolBar />
