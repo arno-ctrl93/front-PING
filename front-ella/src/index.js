@@ -6,19 +6,30 @@ import reportWebVitals from './reportWebVitals';
 import Keyboard from './keyboard/Keyboard';
 import ToolBar from './toolbar/Toolbar';
 import TextArea from './textArea/textarea';
+import Console from './console/console';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <div className="Component">
-      <div id="Key">
-        <div id="file"> Je suis un file. </div>
-        <Keyboard />
+      <div className="Top">
+        <div className="Files">
+          <p>File here</p>
         </div>
         <div id = "Editor">
           <ToolBar />
           <TextArea />
         </div>
+      </div>
+        
+      <div className="Bottom">
+        <div id="Clavier">
+          <Keyboard />
+        </div>
+        <div id="Console">
+         <p>Console here</p>
+        </div>
+      </div>
     </div>
   </React.StrictMode>
 );

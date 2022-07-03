@@ -14,19 +14,44 @@ code {
 
 .Component {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
 
-#Key {
+.Bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 35%;
+}
+
+.Top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 65%;
+}
+
+#Clavier {
   display : flex;
   flex-direction: column;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 40%;
 }
 
 #Editor {
-  margin-left: auto;
   display: flex;
   flex-direction: column;
+  width: 70%;
+}
+
+#Terminal {
+  margin-top: 20%;
+  height: 60%;
+}
+
+#Console {
+  width: 50%;
 }

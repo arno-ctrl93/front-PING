@@ -32,7 +32,6 @@ function App() {
           mode="java" 
           theme='monokai'
           fontSize={14}
-          height="700px"
           width="100%"
           showPrintMargin={true}
           showGutter={true}
