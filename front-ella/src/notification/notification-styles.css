@@ -1,0 +1,35 @@
+:root {
+  --background-color: #66245c;
+  --text-color: white;
+}
+
+.Notification {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  width: 100%;
+  height: 50vh;
+}
+
+img {
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.title {
+  color: var(--text-color);
+  font-size: 5vh;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.header {
+  display: flex;
+}
+
+.message {
+  margin-left: 0px;
+  position: relative;
+  display: flex;
+  margin-top: 5%;
+  margin-left: 5%;
+}
