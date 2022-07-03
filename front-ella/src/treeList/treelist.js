@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { useEffect } from "react";
 import { TreeView } from '@material-ui/lab';
 
@@ -10,7 +10,7 @@ const App = () => {
       const content = await response.json()
       console.log(content);
     };
-  });*/
+  });
 
   useEffect(() => {
     function initDossierDeplier(){
@@ -60,4 +60,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App;*/
