@@ -5,10 +5,21 @@ import TextArea from './textArea/textarea';
 //import TreeList from './treeList/treelist';
 import Notifications from './notification/Notification';
 import MyToolBar from './compileBar/compilebar';
+import { useState, useEffect } from "react";
 
-//let keyboard = ToolBar.
+import { isKeyboard } from './toolbar/Toolbar'
 
 function App() {
+  useEffect(() => {
+    function test()
+    {
+      var c = document.getElementById('Clavier')
+    }
+    test()
+    console.log('useffect' + isKeyboard)
+    //document.getElementById('Clavier').outerHTML = '{ isKeyboard && <Keyboard /> }'
+  });
+
   return (
     <div className="Component">
     <div className="Top">
@@ -27,7 +38,7 @@ function App() {
         <Notifications/>
       </div>
       <div id="Clavier">
-        <Keyboard />
+        
       </div>
     </div>
   </div>

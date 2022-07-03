@@ -2,6 +2,9 @@ import "./toolbar-styles.css";
 import React, { useState } from "react";
 import logo from "./totally_spies.jpg";
 import buttonimg from "./button-bar.png";
+import { useEffect } from "react";
+
+//import { isKeyboard } from '../constant/global'
 
 let isKeyboard = false;
 
@@ -21,9 +24,11 @@ function ToolBar() {
   const [isToggled, setIsToggled] = useState(false);
   const onToggle = () => 
   {
-    console.log(isToggled);
-    isKeyboard = !isKeyboard;
+    //console.log(isToggled);
+   // isKeyboard = !isKeyboard;x
     setIsToggled(!isToggled);
+    isKeyboard = isToggled
+    //console.log(isKeyboard)
   }
 
   // preference menu
@@ -32,6 +37,11 @@ function ToolBar() {
     console.log(isMenuOpen);
     setIsMenuOpen(!isMenuOpen);
   }
+
+  useEffect(() => {
+    console.log('useffect' + isKeyboard)
+    //document.getElementById('Clavier').outerHTML = '{ isKeyboard && <Keyboard /> }'
+  }, [isKeyboard]);
 
   return (
     <div class="Layout">
@@ -58,4 +68,5 @@ function ToolBar() {
   );
 }
 
-export default ToolBar;
+export default ToolBar
+export { isKeyboard };
