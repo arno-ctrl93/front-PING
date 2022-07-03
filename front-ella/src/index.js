@@ -3,35 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Keyboard from './keyboard/Keyboard';
-import ToolBar from './toolbar/Toolbar';
-import TextArea from './textArea/textarea';
-import TreeList from './treeList/treelist';
-import Notifications from './notification/Notification';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className="Component">
-      <div className="Top">
-        <div className="Files">
-          <TreeList />
-        </div>
-        <div id = "Editor">
-          <ToolBar />
-          <TextArea />
-        </div>
-      </div>
-        
-      <div className="Bottom">
-        <div id="Clavier">
-          <Keyboard />
-        </div>
-        <div id="Console">
-          <Notifications/>
-        </div>
-      </div>
-    </div>
+    <App />
   </React.StrictMode>
 );
 

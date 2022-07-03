@@ -54,3 +54,9 @@ code {
 #Console {
   width: 50%;
 }
+
+.Files {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

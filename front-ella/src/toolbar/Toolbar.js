@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import logo from "./totally_spies.jpg";
 import buttonimg from "./button-bar.png";
 
+let isKeyboard = false;
+
 function PrefMenu() {
   return (
     <div class="menu">
@@ -14,14 +16,22 @@ function PrefMenu() {
   );
 }
 
-export default function ToolBar() {
+function ToolBar() {
   // switch button
   const [isToggled, setIsToggled] = useState(false);
-  const onToggle = () => setIsToggled(!isToggled);
+  const onToggle = () => 
+  {
+    console.log(isToggled);
+    isKeyboard = !isKeyboard;
+    setIsToggled(!isToggled);
+  }
 
   // preference menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const buttonClick = () => setIsMenuOpen(!isMenuOpen);
+  const buttonClick = () => {
+    console.log(isMenuOpen);
+    setIsMenuOpen(!isMenuOpen);
+  }
 
   return (
     <div class="Layout">
@@ -47,3 +57,5 @@ export default function ToolBar() {
     </div>
   );
 }
+
+export default ToolBar;

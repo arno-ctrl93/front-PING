@@ -1,0 +1,28 @@
+
+.buttons {
+    border: 0;
+    background-color: #26272C;
+    border-radius: 0px;
+    padding: 5px 10px;
+    transition: background-color 0.2s ease-out;
+    
+  }
+  
+  button {
+    border: 0;
+    background-color: #26272C;
+    color: white;
+    border-radius: 4px;
+    padding: 5px 10px;
+    transition: background-color 0.2s ease-out;
+   
+    cursor: pointer;
+    width: 70px
+  }
+  
+  button:hover {
+    background-color: #585962;
+  }
+  button:active, button:hover {
+    outline: none;
+  }
