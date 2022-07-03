@@ -1,9 +1,9 @@
 .keyboard {
   text-align: center;
-  font-size: 14px;
+  font-size: 1.7vw;
   font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
+  width: auto;
+  height: auto;
 }
 
 .keyboard__row {
@@ -45,13 +45,6 @@
   color: purple;
   position: relative;
   top: 0.2em;
-}
-
-[class*="key--"] {
-  display : inline;
-  display : block;
-  display: flex;
-  justify-content: space-around;
 }
 
 .key--w3 {
