@@ -489,11 +489,11 @@ document.onkeydown = function() {
     <div id="key-O" class="key--letter" data-char="O">O</div>
     <div id="key-P" class="key--letter" data-char="P">P</div>
     <div id="left-b" class="key--double" data-key="219" data-char="{[">
-      <div id='leftB'>lol</div>
+      <div id='leftB'>(</div>
       <div id='leftC'>[</div>
     </div>
     <div id="right-b" class="key--double" data-key="221" data-char="}]">
-      <div id='rightB'>lol</div>
+      <div id='rightB'>)</div>
       <div id='rightC'>]</div>
     </div>
     <div class="key--double" data-key="220" data-char="|\">
