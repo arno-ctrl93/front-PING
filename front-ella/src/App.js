@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import { isKeyboard } from './toolbar/Toolbar'
 
 function App() {
-  useEffect(() => {
+  /*useEffect(() => {
     function test()
     {
       var c = document.getElementById('Clavier')
@@ -18,7 +18,9 @@ function App() {
     test()
     console.log('useffect' + isKeyboard)
     //document.getElementById('Clavier').outerHTML = '{ isKeyboard && <Keyboard /> }'
-  });
+  });*/
+
+  
 
   return (
     <div className="Component">
