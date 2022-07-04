@@ -3,7 +3,7 @@ import checkImg from "./check_icon.png";
 import errorImg from "./error-icon.png";
 
 export default function Notification() {
-  var success = false;
+  var success = true;
   return (
     <div className="Notification">{success ? <Success /> : <Error />}</div>
   );
