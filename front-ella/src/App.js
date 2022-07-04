@@ -7,6 +7,7 @@ import Notifications from './notification/Notification';
 import MyToolBar from './compileBar/compilebar';
 import { useState, useEffect } from "react";
 
+import { theme } from "./toolbar/Toolbar"
 //import { isKeyboard } from './toolbar/Toolbar'
 
 let isKeyboard = true;
@@ -22,6 +23,7 @@ function App() {
   }, [isKeyboard]);
 
   console.log("is kean" + isKeyboard)
+  document.documentElement.className = theme;
 
   return (
     <div className="Component">

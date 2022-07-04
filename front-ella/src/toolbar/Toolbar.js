@@ -7,7 +7,14 @@ import { useEffect } from "react";
 //import refreshComponent from "../App"
 
 import Global from "../constant/global";
+import { isThrowStatement } from "@babel/types";
 
+export var theme = 'ts'
+
+function switchTheme(newTheme)
+{
+  document.documentElement.className = newTheme;
+}
 
 function PrefMenu() {
   return (
@@ -15,7 +22,9 @@ function PrefMenu() {
       <button class="file-button">Preference file</button>
       <button class="run-shortcut">Run shortcut</button>
       <button class="search-shortcut">Search shortcust</button>
-      <button class="ts-theme-shortcut">Totally Spies theme shortcut</button>
+      <button class="ts-theme-shortcut"onClick={switchTheme('ts')}>Totally Spies theme</button>
+      <button class="ts-theme-shortcut" onClick={switchTheme('light')}>Light theme</button>
+      <button class="ts-theme-shortcut"onClick={switchTheme('dark')}>Dark theme</button>
     </div>
   );
 }
@@ -29,10 +38,11 @@ function ToolBar() {
   useEffect(() => {
     //localStorage.setIsToggled('setIsToggled', JSON.stringify(isToggled));
     console.log("refresh : " + isKeyboard)
+    console.log('THEEME' + isThrowStatement)
     //refreshComponent()
 
     //refreshPage(isToggled)
-  }, [isKeyboard]);
+  }, [isKeyboard, window.theme]);
 
   const onToggle = () => 
   {

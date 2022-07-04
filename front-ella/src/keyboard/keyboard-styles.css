@@ -31,9 +31,9 @@
 
 .keyboard__row > * {
   position: relative;
-  background: #fa8ebd;
+  background: var(--background-color);
   text-align: center;
-  color: black;
+  color: var(--text-color);
   float: left;
   border-radius: 0.5em;
   margin: 0.2em;
@@ -49,8 +49,8 @@
 
 .keyboard__row > div[data-pressed],
 .keyboard__row > div:active {
-  background: yellow;
-  color: purple;
+  background: var(--second-color);
+  color: var(--background-color);
   position: relative;
   top: 0.2em;
 }
@@ -151,7 +151,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: purple;
+  background-color: var(--background-color);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -163,17 +163,17 @@
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: var(--second-color);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: blue;
+  background-color: var(--second-color);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px var(--text-color);
 }
 
 input:checked + .slider:before {
@@ -202,7 +202,7 @@ input:checked + .slider:before {
 .toggle-switch .switch {
   position: absolute;
   cursor: pointer;
-  background-color: magenta;
+  background-color: var(--background-color);
   border-radius: 25px;
   top: 0;
   right: 0;
@@ -217,14 +217,14 @@ input:checked + .slider:before {
   top: 2px;
   width: 21px;
   height: 21px;
-  background-color: white;
+  background-color: var(--text-color);
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
 .toggle-switch input[type="checkbox"]:checked + .switch::before {
   transform: translateX(25px);
-  background-color: white;
+  background-color: var(--text-color);
 }
 .toggle-switch input[type="checkbox"]:checked + .switch {
-  background-color: yellow;
+  background-color: var(--background-color);
 }

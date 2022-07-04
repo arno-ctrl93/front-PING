@@ -1,7 +1,7 @@
 
 .buttons {
     border: 0;
-    background-color: #26272C;
+    background-color: var(--second-color);
     border-radius: 0px;
     padding: 5px 10px;
     transition: background-color 0.2s ease-out;
@@ -10,8 +10,8 @@
   
   button {
     border: 0;
-    background-color: #26272C;
-    color: white;
+    background-color:  var(--second-color);
+    color:  var(--text-color);
     border-radius: 4px;
     padding: 5px 10px;
     transition: background-color 0.2s ease-out;
@@ -21,7 +21,7 @@
   }
   
   button:hover {
-    background-color: #585962;
+    background-color:  var(--background-color);
   }
   button:active, button:hover {
     outline: none;

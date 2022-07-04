@@ -6,12 +6,15 @@ function Azerty() {
   const [azerty, setazerty] = useState(false);
   const buttonClick = () => setazerty(!azerty);
   azerty_virtual = !azerty_virtual;
+  
+  var pressColor = getComputedStyle(document.documentElement).getPropertyValue('--second-color');
+ // console.log('press' + pressColor)
+
   useEffect(() => {
     var azerty_physical = true;
     var last_key_pressed = undefined;
     var qwerty_layout = document.getElementById("keyboard").outerHTML;
-    var pressColor = "#FFFF00";
-
+    
     function row_one_to_azerty() {
       // one
       document.getElementById("!").innerHTML = "1";
@@ -109,7 +112,7 @@ function Azerty() {
 
     document.onkeydown = function () {
       if (last_key_pressed != undefined)
-        last_key_pressed.style.backgroundColor = "#fa8ebd";
+        last_key_pressed.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
       var key;
       switch (window.event.keyCode) {
         case 65: // A key
@@ -353,7 +356,7 @@ function Azerty() {
       last_key_pressed = key;
     };
     display_azerty();
-    console.log("coucou");
+    //console.log("coucou");
   });
 
   return (
@@ -674,11 +677,11 @@ function Qwerty() {
     var azerty_physical = true;
     var last_key_pressed = undefined;
     var qwerty_layout = document.getElementById("keyboard").outerHTML;
-    var pressColor = "#FFFF00";
+    var pressColor = getComputedStyle(document.documentElement).getPropertyValue('--second-color');
 
     document.onkeydown = function () {
       if (last_key_pressed != undefined)
-        last_key_pressed.style.backgroundColor = "#fa8ebd";
+        last_key_pressed.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bqckground-color');
       var key;
       switch (window.event.keyCode) {
         case 65: // A key

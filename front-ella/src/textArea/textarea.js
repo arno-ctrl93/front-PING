@@ -11,8 +11,19 @@ import 'ace-builds/src-noconflict/mode-java'
 import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/theme-xcode';
 
+import 'ace-builds/src-noconflict/theme-clouds';
+
+import { theme } from "../toolbar/Toolbar"
+let aceTheme = ""
+if (theme === 'dark')
+  aceTheme = 'monokai'
+else if (theme === 'light')
+  aceTheme = 'clouds'
+else
+  aceTheme = 'xcode'
 
 function App() {
+  console.log("le them" + theme)
 
   useEffect(() => {
     /*let editor = document.getElementById('editor');
@@ -30,7 +41,7 @@ function App() {
           class = "editor"
           placeholder="Type your code here..."
           mode="java" 
-          theme='monokai'
+          theme= { aceTheme }
           fontSize={14}
           width="100%"
           height = "400px"

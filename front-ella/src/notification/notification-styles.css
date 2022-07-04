@@ -1,7 +1,3 @@
-:root {
-  --background-color: #66245c;
-  --text-color: white;
-}
 
 .Notification {
   background-color: var(--background-color);
