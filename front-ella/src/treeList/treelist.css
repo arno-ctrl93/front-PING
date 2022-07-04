@@ -1,71 +1,43 @@
-.Arbolescence {
+.App {
   text-align: center;
-  background-color: grey;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  min-height: 70vh;
 }
 
- 
-ul, li{
+#Arbolescence
+{
+  overflow-y: scroll;
+}
+ul, li
+{
   list-style:none;
-  margin:0;
-  padding:0;
-}
-
-ul ul {
-  margin-left:20px
-}
-
-[type="checkbox"]{
-  display:none;
-}
-
-[class^="file-"],
-#arbo-dossier-4 span:before,
-#arbo-dossier-3 span:before,
-#arbo-dossier-2 label:before,
-#arbo-dossier-1 label:before{
-  font-family: "Font Awesome 5 Free";
-  font-weight: 400;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  display:inline-block;
-}
- span, label {
+  margin: 8px;
+  margin-left: 60px;
   cursor:pointer;
 }
-.file-audio:before{ 
-  content:"\f1c7\0000A0 "!important;
-}
-.file-excel:before{ 
-  content:"\f1c3\0000A0 "!important;
-}
-.file-pdf:before{ 
-  content:"\f1c1\0000A0 "!important;
-}
-#arbo-dossier-4 span.show ~ ul,
 
-#arbo-dossier-3 span ~ ul,
-#arbo-dossier-2 input ~ ul,
-#arbo-dossier-1 input ~ ul{
-  display:none;
+ul
+{
+  display:flex;
+  flex-direction:column;
+  list-style: url('./folder.png');
 }
-#arbo-dossier-4 span ~ ul,
-#arbo-dossier-3 span.show ~ ul,
-#arbo-dossier-2 input:checked ~ ul,
-#arbo-dossier-1 input:checked ~ ul{
-  display:block;
+
+li
+{
+  list-style: url('./file.png');
+  /*list-style: picture;*/
 }
-#arbo-dossier-4 span.show:before, 
-#arbo-dossier-3 span:before,
-#arbo-dossier-2 [type="checkbox"] + label:before,
-#arbo-dossier-1 [type="checkbox"] + label:before{
-  content:"\f07b\0000A0 ";  
+
+ul li::before {
+  content: "\200B";
 }
-#arbo-dossier-4 span:before,
-#arbo-dossier-3 span.show:before, 
-#arbo-dossier-2 [type="checkbox"]:checked + label:before,
-#arbo-dossier-3 [type="checkbox"]:checked + label:before { 
-  content:"\f07c\0000A0 "; 
+
+h4
+{
+  margin-left: 20px;
+  color: white;
 }
- 

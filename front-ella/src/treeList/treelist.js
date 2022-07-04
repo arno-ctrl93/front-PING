@@ -1,63 +1,125 @@
-/*import React from "react";
+import React from "react";
 import { useEffect } from "react";
-import { TreeView } from '@material-ui/lab';
+import "./treelist.css";
 
 const App = () => {
-  /*useEeffect(() => {
-    const fetchProject = async () => 
-    {
-      const response = await fetch("localhost:9000/project");
-      const content = await response.json()
-      console.log(content);
+  let root;
+  
+  /*const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json',
+                  'Access-Control-Allow-Origin': '*',
+                   'mode':'no-cors'},
+      body: JSON.stringify({ path: 'myproject', name: 'root' })
+  };
+  
+  fetch('http://localhost:9000/init/', requestOptions)
+      .then(response => response.json())
+      .then(data => { root = data["root"]; console.log("MY DATA: "+data)})
+      .catch(error => console.log('error', error));*/
+
+  root = {
+    "root":{
+      "name":"root",
+      "path":"myproject",
+      "isFolder" : true,
+      "isFile" : false,
+      "children":[
+        {
+          "name":"src",
+          "path":"myproject/src",
+          "isFolder" : true,
+          "isFile" : false,
+          "children":[
+            {
+              "name":"main",
+              "path":"myproject/src/main",
+              "isFolder" : false,
+              "isFile" : true,
+              "children":[]
+            },
+            {
+              "name":"test",
+              "path":"myproject/src/test",
+              "isFolder" : false,
+              "isFile" : true,
+              "children":[]
+            }
+          ]
+        },
+        {
+          "name":"test",
+          "path":"myproject/test",
+          "isFolder" : false,
+          "isFile" : true,
+          "children":[]
+        }]
+    }
+  }
+  
+  let arbo = "";
+  var arboDiv = document.getElementById("Arbolescence");
+  if (!arboDiv) {
+    console.log("arboDiv not found");
+  }
+
+  function loadFile(path) {
+    console.log("loadFile: "+path);
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json',
+                  'Access-Control-Allow-Origin': '*',
+                   'mode':'no-cors'},
+      body: JSON.stringify({ path: path })
     };
-  });
+    fetch('http://localhost:9000/contentFile', requestOptions)
+        .then(response => response.json())
+        .then(data => { console.log("MY DATA: "+data)})
+        .catch(error => console.log('error', error));
+  }
+  function createArbolescence(root, indexSpace, folderToAttach) {
+    for (let children of root.children) {
+      if (children.isFolder) 
+      {
+        // is folder
+        var folderUl = document.createElement("lu");
+        folderUl.innerHTML = children["name"];
+        createArbolescence(children, indexSpace + 1, folderUl);
+        folderToAttach.appendChild(folderUl);
+      }
+      else
+      {
+        // is file
+        var fileIl = document.createElement("li");
+        fileIl.innerHTML = children["name"];
+        fileIl.onclick = function() {
+          console.log("click");
+          loadFile(children["path"]);
+        }
+        folderToAttach.appendChild(fileIl);
+      }
+    }
+  }
 
   useEffect(() => {
-    function initDossierDeplier(){
-      var oArbo = document.getElementById('arbo-dossier-2'),
-          aDossier = oArbo.getElementsByTagName('input');
-      for(var i = 0; i <aDossier.length; i++){
-        aDossier[i].checked=true;
-      }//for
-    }//fct
-    function initDossierDeplierJs(id){
-      var oArbo = document.getElementById('arbo-dossier-'+id),
-          aDossier = oArbo.getElementsByTagName('span');
-      for(var i = 0; i <aDossier.length; i++){
-        var oUl = aDossier[i].parentNode.getElementsByTagName('ul')
-        if(oUl.length == 0){
-          continue;
-        } //if
-        aDossier[i].addEventListener('click',function(oEvent){
-          var oBt = oEvent.currentTarget,
-              sClass="show",
-              bHasClass= oBt.classList.contains(sClass);
-          if(bHasClass){
-            oBt.classList.remove(sClass);
-          }else{
-            oBt.classList.add(sClass);
-          }//else
-        });
-      }//for
-    }//fct
-    document.addEventListener('DOMContentLoaded',function(){
-      initDossierDeplier();
-      initDossierDeplierJs(3)
-      initDossierDeplierJs(4)
-    });
+    let Arbolescence = document.getElementById("Arbolescence");
+    if (Arbolescence && root !== undefined) {
+      var folderUl = document.createElement("lu");
+      folderUl.innerHTML = root["root"]["name"];
+      createArbolescence(root["root"], 1, folderUl);
+      Arbolescence.appendChild(folderUl);
+    }
+    else
+      console.log("Root undefined")
   });
   return (
-    <div className="Arbolescence">
-    <div id="arbo-dossier-1">
-      <ul>
-        <li><input type="checkbox" id="parent-0"/><label for="parent-0"> Parent 0</label></li>
-        <ul>
-            <li><input type="checkbox" id="fils-exp1-0_0"/><label for="fils-exp1-0_0">fils 0_0</label></li>
-        </ul>
-      </ul>
+    <div className="App">
+      <h4>Arbolescence des fichiers </h4>
+      <div id="Arbolescence">
+      </div>
     </div>
-    </div>
+    
   );
 };
 
-export default App;*/
+export default App;
