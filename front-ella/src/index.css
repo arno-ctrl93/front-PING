@@ -21,6 +21,7 @@ code {
 .Bottom {
   display: flex;
   flex-direction: row;
+  
   height: 40%;
 }
 
