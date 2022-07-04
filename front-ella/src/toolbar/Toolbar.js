@@ -3,12 +3,11 @@ import React, { useState } from "react";
 import logo from "./totally_spies.jpg";
 import buttonimg from "./button-bar.png";
 import { useEffect } from "react";
-import localStorage from "local-storage";
+//import localStorage from "local-storage";
 //import refreshComponent from "../App"
 
-import global from '../constant/global'
+import Global from "../constant/global";
 
-let isKeyboard = false;
 
 function PrefMenu() {
   return (
@@ -24,6 +23,7 @@ function PrefMenu() {
 function ToolBar() {
   // switch button
   const [isToggled, setIsToggled] = useState(false);
+  var isKeyboard = global.isKeyboard;
   //const [isKeyboard, setIsKeyboard ] = global;
 
   useEffect(() => {

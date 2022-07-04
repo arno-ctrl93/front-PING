@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 //import { isKeyboard } from './toolbar/Toolbar'
 
-let isKeyboard = false;
+let isKeyboard = true;
 
 export var refreshComponent = function () {
     isKeyboard = !isKeyboard
@@ -17,11 +17,6 @@ export var refreshComponent = function () {
 
 function App() {
   useEffect(() => {
-    /*function test()
-    {
-      var c = document.getElementById('Clavier')
-    }
-    test()*/
     console.log('useffect' + isKeyboard)
     //document.getElementById('Clavier').outerHTML = '{ isKeyboard && <Keyboard /> }'
   }, [isKeyboard]);
