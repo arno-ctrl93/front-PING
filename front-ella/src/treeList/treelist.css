@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  color: white;
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   background-color: var(--background-color);
@@ -13,17 +13,16 @@
 }
 ul, li
 {
-  list-style:none;
   margin: 8px;
-  margin-left: 60px;
+  margin-left: 40px;
   cursor:pointer;
+  
 }
 
 ul
 {
-  display:flex;
-  flex-direction:column;
   list-style: url('./folder.png');
+  
 }
 
 li
@@ -38,6 +37,8 @@ ul li::before {
 
 h4
 {
-  margin-left: 20px;
   color: white;
+  background-color: var(--second-color);
+  padding: 10px;
+  color: var(--text-color);
 }

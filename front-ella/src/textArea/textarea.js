@@ -26,13 +26,6 @@ function App() {
   console.log("le them" + theme)
 
   useEffect(() => {
-    /*let editor = document.getElementById('editor');
-    if (editor) {
-      editor.style.height = '100%';
-    }
-    else
-      console.log("editor not found");
-    //editor.setTheme("ace/theme/clouds_midnight");*/
   });
   return (
     <div className="App">
@@ -45,6 +38,11 @@ function App() {
           fontSize={14}
           width="100%"
           height = "400px"
+          value={`public class HelloWorld {
+  public static void main(String[] args) {
+      System.out.println("Hello World!");
+  }
+}`}
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}

@@ -4,21 +4,20 @@ import "./treelist.css";
 
 const App = () => {
   let root;
-  
-  /*const requestOptions = {
+  const requestOptions = {
+      mode: 'no-cors',
       method: 'POST',
       headers: { 'Content-Type': 'application/json',
-                  'Access-Control-Allow-Origin': '*',
-                   'mode':'no-cors'},
+      'Access-Control-Allow-Origin': '*'},
       body: JSON.stringify({ path: 'myproject', name: 'root' })
   };
   
   fetch('http://localhost:9000/init/', requestOptions)
       .then(response => response.json())
       .then(data => { root = data["root"]; console.log("MY DATA: "+data)})
-      .catch(error => console.log('error', error));*/
+      .catch(error => console.log('error', error));
 
-  root = {
+  /*root = {
     "root":{
       "name":"root",
       "path":"myproject",
@@ -55,7 +54,7 @@ const App = () => {
           "children":[]
         }]
     }
-  }
+  }*/
   
   let arbo = "";
   var arboDiv = document.getElementById("Arbolescence");
@@ -66,6 +65,7 @@ const App = () => {
   function loadFile(path) {
     console.log("loadFile: "+path);
     const requestOptions = {
+      mode: 'no-cors',
       method: 'POST',
       headers: { 'Content-Type': 'application/json',
                   'Access-Control-Allow-Origin': '*',
@@ -82,8 +82,12 @@ const App = () => {
       if (children.isFolder) 
       {
         // is folder
-        var folderUl = document.createElement("lu");
+        var folderUl = document.createElement("li");
+        var checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        folderUl.appendChild(checkbox);
         folderUl.innerHTML = children["name"];
+        folderUl.style.listStyle = "square";
         createArbolescence(children, indexSpace + 1, folderUl);
         folderToAttach.appendChild(folderUl);
       }
@@ -104,8 +108,9 @@ const App = () => {
   useEffect(() => {
     let Arbolescence = document.getElementById("Arbolescence");
     if (Arbolescence && root !== undefined) {
-      var folderUl = document.createElement("lu");
+      var folderUl = document.createElement("li");
       folderUl.innerHTML = root["root"]["name"];
+      folderUl.style.listStyle = "./folder.jpg";
       createArbolescence(root["root"], 1, folderUl);
       Arbolescence.appendChild(folderUl);
     }
@@ -114,7 +119,7 @@ const App = () => {
   });
   return (
     <div className="App">
-      <h4>Arbolescence des fichiers </h4>
+      <center><h4> Fichiers </h4></center>
       <div id="Arbolescence">
       </div>
     </div>
