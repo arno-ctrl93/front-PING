@@ -7,20 +7,26 @@ import Notifications from './notification/Notification';
 import MyToolBar from './compileBar/compilebar';
 import { useState, useEffect } from "react";
 
-import { isKeyboard } from './toolbar/Toolbar'
+//import { isKeyboard } from './toolbar/Toolbar'
+
+let isKeyboard = false;
+
+export var refreshComponent = function () {
+    isKeyboard = !isKeyboard
+}
 
 function App() {
-  /*useEffect(() => {
-    function test()
+  useEffect(() => {
+    /*function test()
     {
       var c = document.getElementById('Clavier')
     }
-    test()
+    test()*/
     console.log('useffect' + isKeyboard)
     //document.getElementById('Clavier').outerHTML = '{ isKeyboard && <Keyboard /> }'
-  });*/
+  }, [isKeyboard]);
 
-  
+  console.log("is kean" + isKeyboard)
 
   return (
     <div className="Component">
@@ -40,7 +46,7 @@ function App() {
         <Notifications/>
       </div>
       <div id="Clavier">
-        
+        { isKeyboard && <Keyboard /> }
       </div>
     </div>
   </div>
@@ -48,3 +54,4 @@ function App() {
 }
 
 export default App;
+//export { refreshComponent };

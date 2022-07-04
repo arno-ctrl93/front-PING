@@ -1,2 +1,6 @@
-const isKeyboard = false;
-export { isKeyboard }
+import { useState } from 'react'
+
+export const Global = () => {
+    const [isKeyboard, setIsKeyboard] = useState(false);
+}
+

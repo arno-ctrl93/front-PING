@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import logo from "./totally_spies.jpg";
 import buttonimg from "./button-bar.png";
 import { useEffect } from "react";
+import localStorage from "local-storage";
+//import refreshComponent from "../App"
 
-//import { isKeyboard } from '../constant/global'
+import global from '../constant/global'
 
 let isKeyboard = false;
 
@@ -13,7 +15,7 @@ function PrefMenu() {
     <div class="menu">
       <button class="file-button">Preference file</button>
       <button class="run-shortcut">Run shortcut</button>
-      <button class="search-shortcut">Search shortcut</button>
+      <button class="search-shortcut">Search shortcust</button>
       <button class="ts-theme-shortcut">Totally Spies theme shortcut</button>
     </div>
   );
@@ -22,13 +24,21 @@ function PrefMenu() {
 function ToolBar() {
   // switch button
   const [isToggled, setIsToggled] = useState(false);
+  //const [isKeyboard, setIsKeyboard ] = global;
+
+  useEffect(() => {
+    //localStorage.setIsToggled('setIsToggled', JSON.stringify(isToggled));
+    console.log("refresh : " + isKeyboard)
+    //refreshComponent()
+
+    //refreshPage(isToggled)
+  }, [isKeyboard]);
+
   const onToggle = () => 
   {
-    //console.log(isToggled);
-   // isKeyboard = !isKeyboard;x
     setIsToggled(!isToggled);
     isKeyboard = isToggled
-    //console.log(isKeyboard)
+    //refreshPage(isToggled)
   }
 
   // preference menu
@@ -38,11 +48,16 @@ function ToolBar() {
     setIsMenuOpen(!isMenuOpen);
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     console.log('useffect' + isKeyboard)
+    refreshPage()
     //document.getElementById('Clavier').outerHTML = '{ isKeyboard && <Keyboard /> }'
-  }, [isKeyboard]);
+  }, [isKeyboard]);*/
 
+    /*function refreshPage(isToggled) {
+        console.log("refresh page");
+        window.location.reload(false);
+    }*/
   return (
     <div class="Layout">
       <div class="ToolBar">
@@ -69,4 +84,4 @@ function ToolBar() {
 }
 
 export default ToolBar
-export { isKeyboard };
+//export { isKeyboard };
