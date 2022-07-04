@@ -9,11 +9,12 @@ import { useEffect } from "react";
 import Global from "../constant/global";
 import { isThrowStatement } from "@babel/types";
 
-export var theme = 'ts'
+export var theme = 'light'
 
 function switchTheme(newTheme)
 {
   document.documentElement.className = newTheme;
+  console.log("swiiiiiitch")
 }
 
 function PrefMenu() {
@@ -22,9 +23,9 @@ function PrefMenu() {
       <button class="file-button">Preference file</button>
       <button class="run-shortcut">Run shortcut</button>
       <button class="search-shortcut">Search shortcust</button>
-      <button class="ts-theme-shortcut"onClick={switchTheme('ts')}>Totally Spies theme</button>
-      <button class="ts-theme-shortcut" onClick={switchTheme('light')}>Light theme</button>
-      <button class="ts-theme-shortcut"onClick={switchTheme('dark')}>Dark theme</button>
+      <button class="ts-theme-shortcut"onClick={switchTheme('light')}>Totally Spies theme</button>
+      <button class="light-theme-shortcut" onClick={switchTheme('ts')}>Light theme</button>
+      <button class="dark-theme-shortcut"onClick={switchTheme('dark')}>Dark theme</button>
     </div>
   );
 }
@@ -42,7 +43,7 @@ function ToolBar() {
     //refreshComponent()
 
     //refreshPage(isToggled)
-  }, [isKeyboard, window.theme]);
+  }, [isKeyboard]);
 
   const onToggle = () => 
   {
@@ -84,7 +85,7 @@ function ToolBar() {
         </div>
         <div>
           <button class="preference-button" type="button" onClick={buttonClick}>
-            <img src={buttonimg} width="40" />
+            <img class="barimg" src={buttonimg} width="40" />
           </button>
         </div>
       </div>
