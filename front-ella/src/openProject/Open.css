@@ -1,0 +1,43 @@
+.Open .lander {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.Open .lander h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+
+.Open .Choose {
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.Open .Choose .Button {
+    margin: 0 auto;
+    width: 170px;
+    border-radius: 4px;
+    background-color: #e3e3e3;
+    border-color: #26272C;
+}
+
+.Open .Choose .Button:hover {
+    background-color: #cccccc;
+}
+
+.Open .OpenProject {
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.Open .OpenProject .Button {
+    margin: 0 auto;
+    width: 170px;
+    border-radius: 4px;
+    background-color: #e3e3e3;
+    border-color: #26272C;
+}
+
+.Open .OpenProject .Button:hover {
+    background-color: #cccccc;
+}

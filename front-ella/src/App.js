@@ -1,55 +1,62 @@
 import './App.css';
-import Keyboard from './keyboard/Keyboard';
-import ToolBar from './toolbar/Toolbar';
-import TextArea from './textArea/textarea';
-import TreeList from './treeList/treelist';
-import Notifications from './notification/Notification';
-import MyToolBar from './compileBar/compilebar';
+import Navbar from "react-bootstrap/Navbar";
 import { useState, useEffect } from "react";
+import { StartContext } from "./contexts/StartContext";
+import Routes from "./Routes";
+import Nav from "react-bootstrap/Nav";
+import { LinkContainer } from "react-router-bootstrap";
+import {useNavigate} from "react-router-dom";
+import IDEPage from "./idePage/IDEPage";
 
-import { theme } from "./toolbar/Toolbar"
-//import { isKeyboard } from './toolbar/Toolbar'
+export default function App() {
 
-let isKeyboard = true;
+    const nav = useNavigate();
 
-export var refreshComponent = function () {
-    isKeyboard = !isKeyboard
-}
+  const [hasStarted, setHasStarted] = useState(false);
 
-function App() {
-  useEffect(() => {
-    console.log('useffect' + isKeyboard)
-    //document.getElementById('Clavier').outerHTML = '{ isKeyboard && <Keyboard /> }'
-  }, [isKeyboard]);
-
-  console.log("is kean" + isKeyboard)
-  document.documentElement.className = theme;
+  function handleLogout() {
+      setHasStarted(false);
+      nav("/")
+  }
 
   return (
-    <div className="Component">
-    <div className="Top">
-      <div className="Files">
-        <TreeList />
+      <div className="App container py-3">
+          <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
+              <LinkContainer to="/">
+                  <Navbar.Brand className="font-weight-bold text-muted">
+                      Totally Spies
+                  </Navbar.Brand>
+              </LinkContainer>
+              <Navbar.Toggle />
+              <Navbar.Collapse className="justify-content-end">
+                  <Nav activeKey={window.location.pathname}>
+                      {
+                        hasStarted ? (
+                            <Nav.Link onClick={handleLogout}>Home</Nav.Link>
+                        ) : (
+                            <>
+                                <LinkContainer to="/open">
+                                    <Nav.Link>OPEN</Nav.Link>
+                                </LinkContainer>
+                                <LinkContainer to="/new">
+                                    <Nav.Link>NEW</Nav.Link>
+                                </LinkContainer>
+                            </>
+                        )
+                      }
+                  </Nav>
+              </Navbar.Collapse>
+          </Navbar>
+          <StartContext.Provider value={{hasStarted, setHasStarted}}>
+              <Routes />
+          </StartContext.Provider>
       </div>
-      <div id = "Editor">
-        <ToolBar />
-        <TextArea />
-        
-      </div>
-    </div>
-      
-    <div className="Bottom">
-      <div id="Console">
-        <MyToolBar/>
-        <Notifications/>
-      </div>
-      <div id="Clavier">
-        { isKeyboard && <Keyboard /> }
-      </div>
-    </div>
-  </div>
   );
 }
 
-export default App;
-//export { refreshComponent };
+/*export default function App() {
+
+    return (
+        <IDEPage />
+    );
+}*/

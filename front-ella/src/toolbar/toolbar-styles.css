@@ -107,3 +107,13 @@ img {
     color: white;
   cursor: pointer;
 }
+
+.save-button {
+  margin-left: 400px;
+}
+
+.save-button:hover {
+  background-color: var(--background-color);
+  color: white;
+  cursor: pointer;
+}

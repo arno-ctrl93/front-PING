@@ -3,11 +3,8 @@ import React, { useState } from "react";
 import logo from "./totally_spies.jpg";
 import buttonimg from "./button-bar.png";
 import { useEffect } from "react";
-//import localStorage from "local-storage";
-//import refreshComponent from "../App"
-
-import Global from "../constant/global";
 import { isThrowStatement } from "@babel/types";
+import { useKeyboardContext } from '../contexts/KeyboardContext'
 
 export var theme = 'light'
 
@@ -33,23 +30,21 @@ function PrefMenu() {
 function ToolBar() {
   // switch button
   const [isToggled, setIsToggled] = useState(false);
-  var isKeyboard = global.isKeyboard;
-  //const [isKeyboard, setIsKeyboard ] = global;
+
+  const { setIsKeyboard } = useKeyboardContext();
 
   useEffect(() => {
     //localStorage.setIsToggled('setIsToggled', JSON.stringify(isToggled));
-    console.log("refresh : " + isKeyboard)
     console.log('THEEME' + isThrowStatement)
     //refreshComponent()
 
     //refreshPage(isToggled)
-  }, [isKeyboard]);
+  }, [isToggled]);
 
   const onToggle = () => 
   {
     setIsToggled(!isToggled);
-    isKeyboard = isToggled
-    //refreshPage(isToggled)
+    setIsKeyboard(!isToggled)
   }
 
   // preference menu
@@ -59,21 +54,14 @@ function ToolBar() {
     setIsMenuOpen(!isMenuOpen);
   }
 
-  /*useEffect(() => {
-    console.log('useffect' + isKeyboard)
-    refreshPage()
-    //document.getElementById('Clavier').outerHTML = '{ isKeyboard && <Keyboard /> }'
-  }, [isKeyboard]);*/
-
-    /*function refreshPage(isToggled) {
-        console.log("refresh page");
-        window.location.reload(false);
-    }*/
   return (
     <div class="Layout">
       <div class="ToolBar">
         <img class="logo" src={logo} />
         <div class="ide-name">ELLA IDE</div>
+        <div className='save-btn'>
+            <button class="save-button">Save</button>
+        </div>
         <div class="switch-element">
           <div class="toggle-switch">
             <label className="toggle-switch">

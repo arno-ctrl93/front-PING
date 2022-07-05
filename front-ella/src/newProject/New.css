@@ -1,0 +1,23 @@
+.New .lander {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.New .lander h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+
+.New .Form form {
+    margin: 0 auto;
+    max-width: 200px;
+    text-align: center;
+}
+
+/*@media all and (min-width: 480px) {
+
+    .Form form {
+        margin: 0 auto;
+        max-width: 200px;
+    }
+}*/

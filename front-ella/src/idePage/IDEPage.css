@@ -1,0 +1,19 @@
+:root,
+:root.light {
+    --background-color: rgb(234, 234, 234);
+    --second-color: rgb(170, 162, 248);
+    --text-color: rgb(91, 63, 122);
+}
+
+:root.dark {
+    --background-color: #4c4c4c;
+    --second-color: rgb(40, 39, 45);
+    --text-color: white;
+}
+
+:root.ts {
+    --background-color: rgb(91, 40, 91);
+    --second-color: rgb(198, 69, 148);
+    --text-color: yellow;
+}
+
