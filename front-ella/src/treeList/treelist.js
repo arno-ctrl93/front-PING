@@ -18,6 +18,8 @@ const App = () => {
       name : "cc"
     }
   }).then(function (response) {
+    root = response.data;
+    console.log("file")
     console.log(response.data);
   });
   /*const requestOptions = {

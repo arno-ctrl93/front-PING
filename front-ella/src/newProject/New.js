@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './New.css'
 import { useStartContext } from '../contexts/StartContext'
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 export default function QuestionForm() {
 
@@ -29,14 +30,16 @@ export default function QuestionForm() {
           event.preventDefault();
           setHasStarted(true);
           nav("/ide");
-          const requestOptions = {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ path: inputPath + '/' + inputName })
-          };
-          fetch('https://reqres.in/api/posts', requestOptions)
-              .then(response => response.json())
-              .then(data => this.setState({ postId: data.id }));
+          axios({
+              method: 'post',
+              url: 'http://localhost:9000/init',
+              data: {
+                  path : inputPath,
+                  name: inputName,
+              }
+          }).then(function (response) {
+              console.log(response.data);
+          });
 
           //window.open('https://google.com', '_blank', 'noopener,noreferrer');
       }
