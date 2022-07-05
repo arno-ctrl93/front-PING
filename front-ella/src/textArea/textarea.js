@@ -1,6 +1,7 @@
 import './textarea.css';
 import React from 'react';
-import { useEffect } from 'react'
+import { useEffect } from 'react';
+import { useState } from "react";
 import { render } from 'react-dom';
 import AceEditor from 'react-ace';
 
@@ -12,6 +13,7 @@ import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/theme-xcode';
 
 import 'ace-builds/src-noconflict/theme-clouds';
+import { TextContext } from '../contexts/TextContext'
 
 import { theme } from "../toolbar/Toolbar"
 let aceTheme = ""
@@ -22,6 +24,8 @@ else if (theme === 'light')
 else
   aceTheme = 'xcode'
 
+
+
   function changeTextArea(text) {
     console.log("changeTextArea: " + text)
     let edit = document.getElementById("editor")
@@ -31,8 +35,10 @@ else
   }
 
 function App() {
-  console.log("le them" + theme)
+  console.log("le them" + theme);
   changeTextArea("");
+  const [isText, setIsText] = useState("");
+
   useEffect(() => {
   });
   return (
@@ -46,11 +52,7 @@ function App() {
           fontSize={14}
           width="100%"
           height = "400px"
-          value={`public class HelloWorld {
-  public static void main(String[] args) {
-      System.out.println("Hello World!");
-  }
-}`}
+          value={isText}
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}

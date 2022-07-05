@@ -7,12 +7,15 @@ import Notifications from '../notification/Notification';
 import MyToolBar from '../compileBar/compilebar';
 import { useState, useEffect } from "react";
 
-import { theme } from "../toolbar/Toolbar"
-import { KeyboardContext } from '../contexts/KeyboardContext'
+import { theme } from "../toolbar/Toolbar";
+import { KeyboardContext } from '../contexts/KeyboardContext';
+import { TextContext } from '../contexts/TextContext';
 
 export default function IDEPage() {
 
     const [isKeyboard, setIsKeyboard] = useState(false);
+    const [isText, setIsText] = useState(false);
+
 
     document.documentElement.className = theme;
 
@@ -20,14 +23,15 @@ export default function IDEPage() {
         <div className="Component">
             <KeyboardContext.Provider value={{ isKeyboard, setIsKeyboard }}>
                 <div className="Top">
+                    <TextContext.Provider value={{ isText, setIsText }}>
                     <div className="Files">
                         <TreeList />
                     </div>
                     <div id = "Editor">
                         <ToolBar />
                         <TextArea />
-
                     </div>
+                    </TextContext.Provider>
                 </div>
 
                 <div className="Bottom">

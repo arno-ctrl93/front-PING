@@ -1,10 +1,26 @@
 import React from "react";
 import { useEffect } from "react";
 import "./treelist.css";
+import axios from 'axios';
+
+import { useTextContext } from '../contexts/TextContext'
 
 const App = () => {
   let root;
-  const requestOptions = {
+
+  const { setIsText } = useTextContext();
+
+  axios({
+    method: 'post',
+    url: 'http://localhost:9000/init',
+    data: {
+      path : "myproject",
+      name : "cc"
+    }
+  }).then(function (response) {
+    console.log(response.data);
+  });
+  /*const requestOptions = {
       mode: 'no-cors',
       method: 'POST',
       headers: { 'Content-Type': 'application/json',
@@ -12,10 +28,10 @@ const App = () => {
       body: JSON.stringify({ path: 'myproject', name: 'root' })
   };
   
-  fetch('http://localhost:9000/init/', requestOptions)
+  fetch('http://localhost:9000/init', requestOptions)
       .then(response => response.json())
       .then(data => { root = data["root"]; console.log("MY DATA: "+data)})
-      .catch(error => console.log('error', error));
+      .catch(error => console.log('error', error));*/
 
   /*root = {
     "root":{
@@ -64,6 +80,7 @@ const App = () => {
 
   function loadFile(path) {
     console.log("loadFile: "+path);
+    let t = "";
     const requestOptions = {
       mode: 'no-cors',
       method: 'POST',
@@ -74,8 +91,9 @@ const App = () => {
     };
     fetch('http://localhost:9000/contentFile', requestOptions)
         .then(response => response.json())
-        .then(data => { console.log("MY DATA: "+data)})
+        .then(data => { t = data; console.log("MY DATA: "+data)})
         .catch(error => console.log('error', error));
+    return t;
   }
   function createArbolescence(root, indexSpace, folderToAttach) {
     for (let children of root.children) {
@@ -98,7 +116,8 @@ const App = () => {
         fileIl.innerHTML = children["name"];
         fileIl.onclick = function() {
           console.log("click");
-          loadFile(children["path"]);
+          let text = loadFile(children["path"]);
+          setIsText(text);
         }
         folderToAttach.appendChild(fileIl);
       }
