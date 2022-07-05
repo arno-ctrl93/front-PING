@@ -22,9 +22,17 @@ else if (theme === 'light')
 else
   aceTheme = 'xcode'
 
+  function changeTextArea(text) {
+    console.log("changeTextArea: " + text)
+    let edit = document.getElementById("editor")
+    if (edit) {
+      edit.value = text
+    }
+  }
+
 function App() {
   console.log("le them" + theme)
-
+  changeTextArea("");
   useEffect(() => {
   });
   return (
