@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import { theme } from "../toolbar/Toolbar";
 import { KeyboardContext } from '../contexts/KeyboardContext';
 import { TextContext } from '../contexts/TextContext';
+import { CompilationContext } from '../contexts/compilationContext';
 
 let isTextCheck = "";
 
@@ -17,6 +18,7 @@ export default function IDEPage() {
 
     const [isKeyboard, setIsKeyboard] = useState(false);
     const [isText, setIsText] = useState('');
+    const [isCompilation, setIsCompilation] = useState(false);
 
     isTextCheck = isText;
 
@@ -26,26 +28,28 @@ export default function IDEPage() {
         <div className="Component">
             <KeyboardContext.Provider value={{ isKeyboard, setIsKeyboard }}>
                 <TextContext.Provider value={{ isText, setIsText }}>
-                    <div className="Top">
+                    <CompilationContext.Provider value={{ isCompilation, setIsCompilation }}>
+                        <div className="Top">
 
-                        <div className="Files">
-                            <TreeList />
+                            <div className="Files">
+                                <TreeList />
+                            </div>
+                            <div id = "Editor">
+                                <ToolBar />
+                                <TextArea />
+                            </div>
                         </div>
-                        <div id = "Editor">
-                            <ToolBar />
-                            <TextArea />
-                        </div>
-                    </div>
 
-                    <div className="Bottom">
-                        <div id="Console">
-                            <MyToolBar/>
-                            <Notifications/>
+                        <div className="Bottom">
+                            <div id="Console">
+                                <MyToolBar/>
+                                <Notifications successMessage={''} errorMessage={isCompilation}/>
+                            </div>
+                            <div id="Clavier">
+                                { isKeyboard && <Keyboard /> }
+                            </div>
                         </div>
-                        <div id="Clavier">
-                            { isKeyboard && <Keyboard /> }
-                        </div>
-                    </div>
+                    </CompilationContext.Provider>
                 </TextContext.Provider>
             </KeyboardContext.Provider>
         </div>

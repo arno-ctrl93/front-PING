@@ -6,7 +6,6 @@ import Routes from "./Routes";
 import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from "react-router-bootstrap";
 import {useNavigate} from "react-router-dom";
-import IDEPage from "./idePage/IDEPage";
 
 export default function App() {
 
@@ -53,10 +52,3 @@ export default function App() {
       </div>
   );
 }
-
-/*export default function App() {
-
-    return (
-        <IDEPage />
-    );
-}*/
