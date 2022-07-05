@@ -13,7 +13,9 @@ import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/theme-xcode';
 
 import 'ace-builds/src-noconflict/theme-clouds';
-import { TextContext } from '../contexts/TextContext'
+
+import { isTextCheck } from '../idePage/IDEPage';
+//import { useTextContext } from '../contexts/TextContext'
 
 import { theme } from "../toolbar/Toolbar"
 let aceTheme = ""
@@ -37,7 +39,7 @@ else
 function App() {
   console.log("le them" + theme);
   changeTextArea("");
-  const [isText, setIsText] = useState("");
+  //const { setIsText } = useTextContext();
 
   useEffect(() => {
   });
@@ -52,7 +54,7 @@ function App() {
           fontSize={14}
           width="100%"
           height = "400px"
-          value={isText}
+          value={isTextCheck}
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}

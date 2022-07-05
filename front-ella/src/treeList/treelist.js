@@ -9,70 +9,6 @@ const App = () => {
   let root;
 
   const { setIsText } = useTextContext();
-
-  axios({
-    method: 'post',
-    url: 'http://localhost:9000/init',
-    data: {
-      path : "myproject",
-      name : "cc"
-    }
-  }).then(function (response) {
-    root = response.data;
-    console.log("file")
-    console.log(response.data);
-  });
-  /*const requestOptions = {
-      mode: 'no-cors',
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'},
-      body: JSON.stringify({ path: 'myproject', name: 'root' })
-  };
-  
-  fetch('http://localhost:9000/init', requestOptions)
-      .then(response => response.json())
-      .then(data => { root = data["root"]; console.log("MY DATA: "+data)})
-      .catch(error => console.log('error', error));*/
-
-  /*root = {
-    "root":{
-      "name":"root",
-      "path":"myproject",
-      "isFolder" : true,
-      "isFile" : false,
-      "children":[
-        {
-          "name":"src",
-          "path":"myproject/src",
-          "isFolder" : true,
-          "isFile" : false,
-          "children":[
-            {
-              "name":"main",
-              "path":"myproject/src/main",
-              "isFolder" : false,
-              "isFile" : true,
-              "children":[]
-            },
-            {
-              "name":"test",
-              "path":"myproject/src/test",
-              "isFolder" : false,
-              "isFile" : true,
-              "children":[]
-            }
-          ]
-        },
-        {
-          "name":"test",
-          "path":"myproject/test",
-          "isFolder" : false,
-          "isFile" : true,
-          "children":[]
-        }]
-    }
-  }*/
   
   let arbo = "";
   var arboDiv = document.getElementById("Arbolescence");
@@ -83,21 +19,21 @@ const App = () => {
   function loadFile(path) {
     console.log("loadFile: "+path);
     let t = "";
-    const requestOptions = {
-      mode: 'no-cors',
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json',
-                  'Access-Control-Allow-Origin': '*',
-                   'mode':'no-cors'},
-      body: JSON.stringify({ path: path })
-    };
-    fetch('http://localhost:9000/contentFile', requestOptions)
-        .then(response => response.json())
-        .then(data => { t = data; console.log("MY DATA: "+data)})
-        .catch(error => console.log('error', error));
+    axios({
+      method: 'post',
+      url: 'http://localhost:9000/contentFile',
+      data: {
+        path : path,
+      }
+    }).then(function (response) {
+      t = response.data;
+      console.log("file")
+      console.log(response.data);
+    });
     return t;
   }
   function createArbolescence(root, indexSpace, folderToAttach) {
+    console.log("recursive");
     for (let children of root.children) {
       if (children.isFolder) 
       {
@@ -127,16 +63,30 @@ const App = () => {
   }
 
   useEffect(() => {
-    let Arbolescence = document.getElementById("Arbolescence");
-    if (Arbolescence && root !== undefined) {
-      var folderUl = document.createElement("li");
-      folderUl.innerHTML = root["root"]["name"];
-      folderUl.style.listStyle = "./folder.jpg";
-      createArbolescence(root["root"], 1, folderUl);
-      Arbolescence.appendChild(folderUl);
-    }
-    else
-      console.log("Root undefined")
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:9000/init',
+      data: {
+        path : "myproject",
+        name : "cc"
+      }
+    }).then(function (response) {
+      root = response.data;
+      console.log("file")
+      console.log(response.data);
+    }).then(function() {
+
+      let Arbolescence = document.getElementById("Arbolescence");
+      if (Arbolescence && root !== undefined) {
+        var folderUl = document.createElement("li");
+        folderUl.innerHTML = root["root"]["name"];
+        folderUl.style.listStyle = "./folder.jpg";
+        createArbolescence(root["root"], 1, folderUl);
+        Arbolescence.appendChild(folderUl);
+      } else
+        console.log("Root undefined")
+    });
   });
   return (
     <div className="App">
