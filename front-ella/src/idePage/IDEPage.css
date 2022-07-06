@@ -17,3 +17,24 @@
     --text-color: yellow;
 }
 
+.Component {
+    height: 100%
+}
+
+.Component .Edit {
+    width: 100%;
+    height: 300px
+}
+
+.Component .Files {
+    width: 20%;
+    height: 300px
+}
+
+.Component .Top {
+    height: 300px;
+}
+
+.Component .Bottom .keyboard .layout {
+    width: 100%
+}

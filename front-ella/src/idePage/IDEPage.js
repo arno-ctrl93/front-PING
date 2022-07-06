@@ -34,18 +34,18 @@ export default function IDEPage() {
                             <div className="Files">
                                 <TreeList />
                             </div>
-                            <div id = "Editor">
+                            <div className ="Edit" id = "Editor">
                                 <ToolBar />
                                 <TextArea />
                             </div>
                         </div>
 
                         <div className="Bottom">
-                            <div id="Console">
+                            <div className="cs" id="Console">
                                 <MyToolBar/>
                                 <Notifications successMessage={''} errorMessage={isCompilation}/>
                             </div>
-                            <div id="Clavier">
+                            <div className="keyboard"id="Clavier">
                                 { isKeyboard && <Keyboard /> }
                             </div>
                         </div>

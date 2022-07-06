@@ -27,7 +27,6 @@ else
   aceTheme = 'xcode'
 
 
-
   function changeTextArea(text) {
     console.log("changeTextArea: " + text)
     let edit = document.getElementById("editor")
@@ -52,8 +51,8 @@ function App() {
           mode="java" 
           theme= { aceTheme }
           fontSize={14}
-          width="100%"
-          height = "400px"
+          width="110%"
+          height = "250px"
           value={isTextCheck}
           showPrintMargin={true}
           showGutter={true}

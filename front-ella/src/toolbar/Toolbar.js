@@ -55,21 +55,21 @@ function ToolBar() {
   }
 
   return (
-    <div class="Layout">
-      <div class="ToolBar">
-        <img class="logo" src={logo} />
-        <div class="ide-name">ELLA IDE</div>
-        <div class="switch-element">
-          <div class="toggle-switch">
+    <div className="Layout">
+      <div className="ToolBar">
+        <img className="logo" src={logo} />
+        <div className="ide-name">ELLA IDE</div>
+        <div className="switch-element">
+          <div className="toggle-switch">
             <label className="toggle-switch">
               <input type="checkbox" checked={isToggled} onChange={onToggle} />
               <span className="switch" />
             </label>
           </div>
-          <div class="button-text">Keyboard</div>
+          <div className="button-text">Keyboard</div>
         </div>
         <div>
-          <button class="preference-button" type="button" onClick={buttonClick}>
+          <button className="preference-button" type="button" onClick={buttonClick}>
             <img class="barimg" src={buttonimg} width="40" />
           </button>
         </div>
