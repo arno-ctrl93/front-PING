@@ -30,6 +30,8 @@ export default function App() {
         pathProject = pathNew;
   }
 
+  console.log("path = " + pathProject)
+
   return (
       <div className="App container py-3">
           <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">

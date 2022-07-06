@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import './Open.css'
 import { useStartContext } from '../contexts/StartContext'
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 let pathOpen = "";
 
 export default function OpenDirectory() {
+
+    const nav = useNavigate();
 
     const { setHasStarted } = useStartContext();
 
@@ -18,18 +22,24 @@ export default function OpenDirectory() {
         return inputPath.length > 0;
     }
 
+    const getLastItem = (path) => {
+        return path.substring(path.lastIndexOf('/') + 1);
+    }
+
     function handleSubmit(event) {
-        console.log("submitted")
         event.preventDefault();
         setHasStarted(true);
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ path: inputPath })
-        };
-        fetch('https://reqres.in/api/posts', requestOptions)
-            .then(response => response.json())
-            .then(data => this.setState({ postId: data.id }));
+        nav("/ide");
+        axios({
+            method: 'post',
+            url: 'http://localhost:9000/init',
+            data: {
+                path: inputPath,
+                name: getLastItem(inputPath),
+            }
+        }).then(function (response) {
+            console.log(response.data);
+        });
     }
 
     pathOpen = inputPath;
@@ -41,7 +51,7 @@ export default function OpenDirectory() {
                 <p>Open your project on ELLA IDE</p>
             </div>
             <div className='Choose'>
-                <input type="file" directory="" webkitdirectory="" />
+                <input type="file" id="filepicker" directory="" webkitdirectory="" />
                 <button className='Button' onClick={ChooseDirectory}>Choose a Directory</button>
             </div>
             <div className='OpenProject'>
