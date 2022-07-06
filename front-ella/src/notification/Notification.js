@@ -2,7 +2,7 @@ import "./notification-styles.css";
 import checkImg from "./check_icon.png";
 import errorImg from "./error-icon.png";
 
-export default function Notification() {
+export default function Notification ({successMessage, errorMessage}) {
   var success = false;
   return (
     <div className="Notification">{success ? <Success /> : <Error />}</div>
@@ -11,10 +11,10 @@ export default function Notification() {
 
 function Success() {
   return (
-    <div class="layout">
-      <div class="header">
-        <img class="icon-img" src={checkImg} />
-        <div class="title">Build successful</div>
+    <div className="layout">
+      <div className="header">
+        <img className="icon-img" src={checkImg} />
+        <div className="title">Build successful</div>
       </div>
     </div>
   );
@@ -22,12 +22,12 @@ function Success() {
 
 function Error() {
   return (
-    <div class="layout">
-      <div class="header">
-        <img class="icon-error-img" src={errorImg}/>
-        <div class="title">Error</div>
+    <div className="layout">
+      <div className="header">
+        <img className="icon-error-img" src={errorImg}/>
+        <div className="title">Error</div>
       </div>
-      <div class="message">**error message**</div>
+      <div className="message">**error message**</div>
     </div>
   );
 }

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import './Open.css'
 import { useStartContext } from '../contexts/StartContext'
 
+let pathOpen = "";
+
 export default function OpenDirectory() {
 
     const { setHasStarted } = useStartContext();
@@ -28,9 +30,9 @@ export default function OpenDirectory() {
         fetch('https://reqres.in/api/posts', requestOptions)
             .then(response => response.json())
             .then(data => this.setState({ postId: data.id }));
-
-        //window.open('https://google.com', '_blank', 'noopener,noreferrer');
     }
+
+    pathOpen = inputPath;
 
     return (
         <div className='Open'>
@@ -71,3 +73,5 @@ function ChooseDirectory () {
       }
     }*/
 }
+
+export { pathOpen };

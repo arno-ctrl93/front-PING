@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import { theme } from "../toolbar/Toolbar";
 import { KeyboardContext } from '../contexts/KeyboardContext';
 import { TextContext } from '../contexts/TextContext';
-import { CompilationContext } from '../contexts/compilationContext';
+import { CompilationContext } from '../contexts/CompilationContext';
 
 let isTextCheck = "";
 

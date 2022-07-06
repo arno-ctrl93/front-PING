@@ -4,6 +4,8 @@ import { useStartContext } from '../contexts/StartContext'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
+let pathNew = "";
+
 export default function QuestionForm() {
 
       const nav = useNavigate();
@@ -40,9 +42,9 @@ export default function QuestionForm() {
           }).then(function (response) {
               console.log(response.data);
           });
-
-          //window.open('https://google.com', '_blank', 'noopener,noreferrer');
       }
+
+      pathNew = inputPath;
 
       return (
           <div  className='New'>
@@ -72,3 +74,5 @@ export default function QuestionForm() {
           </div>
       )
 }
+
+export { pathNew };

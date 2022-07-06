@@ -1,114 +1,67 @@
 import './compilebar.css'
+import axios from "axios";
+import { useCompilationContext} from "../contexts/CompilationContext";
+import { pathProject } from "../App";
 
 function GitPush () {
-    console.log("push")
-    const requestPush = async () => 
-    {
-      const response = await fetch("localhost:9000/git:3");
-      const content = await response.json()
-      console.log(content);
-    };
-  }
+  console.log("push")
   
   function GitAdd () {
-    const requestAdd = async () => 
-    {
-      const response = await fetch("localhost:9000/git:1");
-      const content = await response.json()
-      console.log(content);
-    };
+    let res = '';
+    axios({
+      method: 'get',
+      url: 'http://localhost:9000/git:/dd',
+    }).then(function (response) {
+      res = response.data;
+    });
+    return res;
   }
 
   function GitCommit () {
-    const requestCommit = async () => 
-    {
-      const response = await fetch("localhost:9000/git:2");
-      const content = await response.json()
-      console.log(content);
-    };
+    axios({
+      method: 'get',
+      url: 'http://localhost:9000/git:/dd',
+    }).then(function (response) {
+      return response.data;
+    });
   }
 
   function GitPull () {
-    const requestPull = async () => 
-    {
-      const response = await fetch("localhost:9000/git:4");
-      const content = await response.json()
-      console.log(content);
-    };
+    axios({
+      method: 'get',
+      url: 'http://localhost:9000/git:3',
+    }).then(function (response) {
+      return response.data;
+    });
   }
 
-  function MavenCompile () {
-    const requestCompile = async () => 
-    {
-      const response = await fetch("localhost:9000/mavencompile");
-      const content = await response.json()
-      console.log(content);
-    };
-  }
+  const allFiles = GitAdd();
 
-  function MavenPackage () {
-    const requestPackage = async () => 
-    {
-      const response = await fetch("localhost:9000/maven:1");
-      const content = await response.json()
-      console.log(content);
-    };
-  }
+}
 
-  function MavenInstall () {
-    const requestInstall = async () => 
-    {
-      const response = await fetch("localhost:9000/maven:2");
-      const content = await response.json()
-      console.log(content);
-    };
-  }
+function Run () {
 
-  function Maventest () {
-    const requestTest = async () => 
-    {
-      const response = await fetch("localhost:9000/maven:3");
-      const content = await response.json()
-      console.log(content);
-    };
-  }
+  const { setIsCompilation } = useCompilationContext();
 
-  function MavenExec () {
-    const requestExec = async () => 
-    {
-      const response = await fetch("localhost:9000/maven:4");
-      const content = await response.json()
-      console.log(content);
-    };
-  }
+  axios({
+    method: 'post',
+    url: 'http://localhost:9000/mvn/compile',
+    data: {
+      rootpath: pathProject,
+    }
+  }).then(function (response) {
+    console.log(response.data);
+    setIsCompilation(response.data);
+  });
+}
 
-  function MavenTree () {
-    const requestTree = async () => 
-    {
-      const response = await fetch("localhost:9000/maven:5");
-      const content = await response.json()
-      console.log(content);
-    };
-  }
-
-  function MavenClean () {
-    const requestClean = async () => 
-    {
-      const response = await fetch("localhost:9000/maven:6");
-      const content = await response.json()
-      console.log(content);
-    };
-  }
-
-
-  function MyToolBar () {
-    return (
-      <div className='buttons'>
-          <button className='run-btn'>Run</button>
-          <button className='git-btn' onClick={GitPush}>Git</button>
-          <button className='maeven-btn'>Maeven</button>
-      </div>
-      )
-  };
+function MyToolBar () {
+  return (
+    <div className='buttons'>
+        <button className='run-btn' onClick={Run}>Run</button>
+        <button className='git-btn' onClick={GitPush}>Git</button>
+    </div>
+    )
+};
       
  export default MyToolBar;

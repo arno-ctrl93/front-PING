@@ -5,7 +5,12 @@ import { StartContext } from "./contexts/StartContext";
 import Routes from "./Routes";
 import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from "react-router-bootstrap";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { pathNew } from "./newProject/New";
+import { pathOpen } from "./openProject/Open";
+
+let pathProject = "";
 
 export default function App() {
 
@@ -16,6 +21,13 @@ export default function App() {
   function handleLogout() {
       setHasStarted(false);
       nav("/")
+  }
+
+  if (pathNew === '') {
+      pathProject = pathOpen;
+  }
+  else {
+        pathProject = pathNew;
   }
 
   return (
@@ -52,3 +64,5 @@ export default function App() {
       </div>
   );
 }
+
+export { pathProject };
