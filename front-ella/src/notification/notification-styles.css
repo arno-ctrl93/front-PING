@@ -2,7 +2,7 @@
 .Notification {
     background-color: var(--background-color);
     color: var(--text-color);
-    height: 27vh;
+    height: 30vh;
 }
 
 .icon-img {

@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { isThrowStatement } from "@babel/types";
 import { useKeyboardContext } from '../contexts/KeyboardContext'
 
-export var theme = 'light'
+export var theme = 'ts'
 
 function switchTheme(newTheme)
 {
