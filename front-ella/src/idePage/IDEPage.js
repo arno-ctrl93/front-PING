@@ -45,7 +45,7 @@ export default function IDEPage() {
                                 <MyToolBar/>
                                 <Notifications successMessage={''} errorMessage={isCompilation}/>
                             </div>
-                            <div className="keyboard"id="Clavier">
+                            <div className="keyboard" id="Clavier">
                                 { isKeyboard && <Keyboard /> }
                             </div>
                         </div>

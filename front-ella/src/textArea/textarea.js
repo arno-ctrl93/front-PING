@@ -52,7 +52,7 @@ function App() {
           theme= { aceTheme }
           fontSize={14}
           width="110%"
-          height = "250px"
+          height = "300px"
           value={isTextCheck}
           showPrintMargin={true}
           showGutter={true}
