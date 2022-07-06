@@ -59,9 +59,6 @@ function ToolBar() {
       <div class="ToolBar">
         <img class="logo" src={logo} />
         <div class="ide-name">ELLA IDE</div>
-        <div className='save-btn'>
-            <button class="save-button">Save</button>
-        </div>
         <div class="switch-element">
           <div class="toggle-switch">
             <label className="toggle-switch">

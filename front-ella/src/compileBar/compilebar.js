@@ -3,6 +3,17 @@ import axios from "axios";
 import { useCompilationContext} from "../contexts/CompilationContext";
 import { pathProject } from "../App";
 
+const Popup = props => {
+  return (
+      <div className="popup-box">
+        <div className="box">
+          <button className="btn-close" onClick={props.handleClose}>x</button>
+          {props.content}
+        </div>
+      </div>
+  );
+};
+
 function GitPush () {
   console.log("push")
   
@@ -37,6 +48,11 @@ function GitPush () {
 
   const allFiles = GitAdd();
 
+  return (
+      <div className='compilebar'>
+      </div>
+  )
+
 }
 
 function Run () {
@@ -60,6 +76,7 @@ function MyToolBar () {
     <div className='buttons'>
         <button className='run-btn' onClick={Run}>Run</button>
         <button className='git-btn' onClick={GitPush}>Git</button>
+        <button className='save_btn'>Save</button>
     </div>
     )
 };
