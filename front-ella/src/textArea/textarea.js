@@ -27,17 +27,18 @@ else
   aceTheme = 'xcode'
 
 
-  function changeTextArea(text) {
+  export function changeTextArea(text) {
     console.log("changeTextArea: " + text)
     let edit = document.getElementById("editor")
+    //isTextCheck = text;
     if (edit) {
       edit.value = text
     }
   }
 
 function App() {
-  console.log("le them" + theme);
-  changeTextArea("");
+  console.log("le theme" + theme);
+  changeTextArea("youhouhou");
   //const { setIsText } = useTextContext();
 
   useEffect(() => {
