@@ -12,7 +12,6 @@ function MyToolBar () {
     setIsOpen(!isOpen)
   }
 
-
   const Popup = props => {
     return (
         <div className="popup-box">
@@ -55,15 +54,15 @@ function MyToolBar () {
       let res = '';
       axios({
         method: 'get',
-        url: 'http://localhost:9000/git:/dd',
+        url: 'http://localhost:9000/allfileslist',
       }).then(function (response) {
         res = response.data;
       });
       return res;
     }
 
-    //const allFiles = GitAdd();
-    const allFiles = ['test', 'example', 'example/test', 'hello.java', 'example/test/test.java'];
+    const allFiles = GitAdd();
+    //const allFiles = ['test', 'example', 'example/test', 'hello.java', 'example/test/test.java'];
 
     const [checkedState, setCheckedState] = useState(
         new Array(allFiles.length).fill(false)
